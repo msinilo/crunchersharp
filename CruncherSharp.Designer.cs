@@ -130,7 +130,7 @@
             this.textBoxCache.Name = "textBoxCache";
             this.textBoxCache.Size = new System.Drawing.Size(34, 20);
             this.textBoxCache.TabIndex = 4;
-            this.textBoxCache.Text = "128";
+            this.textBoxCache.Text = "64";
             this.textBoxCache.Leave += new System.EventHandler(this.textBoxCache_Leave);
             this.textBoxCache.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCache_KeyPress);
             // 
