@@ -35,8 +35,10 @@ namespace CruncherSharp
                 m_source = new DiaSourceClass();
                 try
                 {
+                    Cursor.Current = Cursors.WaitCursor;
                     m_source.loadDataFromPdb(openPdbDialog.FileName);
-                    m_source.openSession(out m_session); 
+                    m_source.openSession(out m_session);
+                    Cursor.Current = Cursors.Default;
                 }
                 catch (System.Runtime.InteropServices.COMException exc)
                 {
@@ -44,10 +46,13 @@ namespace CruncherSharp
                     return;
                 }
 
+                Cursor.Current = Cursors.WaitCursor;
                 IDiaEnumSymbols allSymbols;
                 m_session.findChildren(m_session.globalScope, SymTagEnum.SymTagUDT, null, 0, out allSymbols);
 
                 PopulateDataTable(m_table, allSymbols);
+                Cursor.Current = Cursors.Default;
+
                 // Sort by name by default (ascending)
                 dataGridSymbols.Sort(dataGridSymbols.Columns[0], ListSortDirection.Ascending);
                 bindingSourceSymbols.Filter = null;// "Symbol LIKE '*rde*'";
@@ -337,9 +342,9 @@ namespace CruncherSharp
                 DataGridViewCell cell = row.Cells[0];
                 if (cell.Value.ToString() == "Padding")
                 {
-                    cell.Style.BackColor = Color.LightGray;
-                    row.Cells[1].Style.BackColor = Color.LightGray;
-                    row.Cells[2].Style.BackColor = Color.LightGray;
+                    cell.Style.BackColor = Color.LightPink;
+                    row.Cells[1].Style.BackColor = Color.LightPink;
+                    row.Cells[2].Style.BackColor = Color.LightPink;
                 }
                 else if (cell.Value.ToString().IndexOf("Base: ") == 0)
                 {
@@ -349,9 +354,9 @@ namespace CruncherSharp
                 }
                 else if (cell.Value.ToString() == "Cacheline boundary")
                 {
-                    cell.Style.BackColor = Color.LightPink;
-                    row.Cells[1].Style.BackColor = Color.LightPink;
-                    row.Cells[2].Style.BackColor = Color.LightPink;
+                    cell.Style.BackColor = Color.LightGray;
+                    row.Cells[1].Style.BackColor = Color.LightGray;
+                    row.Cells[2].Style.BackColor = Color.LightGray;
                 }
             }
         }

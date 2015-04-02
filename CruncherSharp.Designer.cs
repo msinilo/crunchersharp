@@ -79,21 +79,21 @@
             this.loadPDBToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loadPDBToolStripMenuItem
             // 
             this.loadPDBToolStripMenuItem.Name = "loadPDBToolStripMenuItem";
             this.loadPDBToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadPDBToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.loadPDBToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.loadPDBToolStripMenuItem.Text = "Load PDB...";
             this.loadPDBToolStripMenuItem.Click += new System.EventHandler(this.loadPDBToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -130,9 +130,9 @@
             this.textBoxCache.Name = "textBoxCache";
             this.textBoxCache.Size = new System.Drawing.Size(34, 20);
             this.textBoxCache.TabIndex = 4;
-            this.textBoxCache.Text = "128";
-            this.textBoxCache.Leave += new System.EventHandler(this.textBoxCache_Leave);
+            this.textBoxCache.Text = "64";
             this.textBoxCache.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCache_KeyPress);
+            this.textBoxCache.Leave += new System.EventHandler(this.textBoxCache_Leave);
             // 
             // label2
             // 
@@ -181,24 +181,27 @@
             // 
             this.dataGridSymbols.AllowUserToAddRows = false;
             this.dataGridSymbols.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.dataGridSymbols.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridSymbols.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridSymbols.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSymbols.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridSymbols.Location = new System.Drawing.Point(0, 0);
+            this.dataGridSymbols.MultiSelect = false;
             this.dataGridSymbols.Name = "dataGridSymbols";
             this.dataGridSymbols.ReadOnly = true;
             this.dataGridSymbols.RowHeadersVisible = false;
             this.dataGridSymbols.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSymbols.Size = new System.Drawing.Size(615, 311);
             this.dataGridSymbols.TabIndex = 2;
-            this.dataGridSymbols.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dataGridSymbols_SortCompare);
             this.dataGridSymbols.SelectionChanged += new System.EventHandler(this.dataGridSymbols_SelectionChanged);
+            this.dataGridSymbols.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dataGridSymbols_SortCompare);
             // 
             // dataGridViewSymbolInfo
             // 
             this.dataGridViewSymbolInfo.AllowUserToAddRows = false;
             this.dataGridViewSymbolInfo.AllowUserToDeleteRows = false;
+            this.dataGridViewSymbolInfo.AllowUserToResizeRows = false;
             this.dataGridViewSymbolInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSymbolInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colField,
@@ -207,15 +210,16 @@
             this.dataGridViewSymbolInfo.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridViewSymbolInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSymbolInfo.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSymbolInfo.MultiSelect = false;
             this.dataGridViewSymbolInfo.Name = "dataGridViewSymbolInfo";
             this.dataGridViewSymbolInfo.ReadOnly = true;
             this.dataGridViewSymbolInfo.RowHeadersVisible = false;
             this.dataGridViewSymbolInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSymbolInfo.Size = new System.Drawing.Size(436, 311);
             this.dataGridViewSymbolInfo.TabIndex = 0;
-            this.dataGridViewSymbolInfo.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dataGridSymbols_SortCompare);
-            this.dataGridViewSymbolInfo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewSymbolInfo_CellPainting);
             this.dataGridViewSymbolInfo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSymbolInfo_CellMouseDoubleClick);
+            this.dataGridViewSymbolInfo.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewSymbolInfo_CellPainting);
+            this.dataGridViewSymbolInfo.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dataGridSymbols_SortCompare);
             // 
             // colField
             // 
@@ -242,19 +246,19 @@
             this.copyTypeLayoutToClipboardToolStripMenuItem,
             this.setPrefetchStartOffsetToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(224, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 48);
             // 
             // copyTypeLayoutToClipboardToolStripMenuItem
             // 
             this.copyTypeLayoutToClipboardToolStripMenuItem.Name = "copyTypeLayoutToClipboardToolStripMenuItem";
-            this.copyTypeLayoutToClipboardToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.copyTypeLayoutToClipboardToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.copyTypeLayoutToClipboardToolStripMenuItem.Text = "Copy Type Layout To Clipboard";
             this.copyTypeLayoutToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyTypeLayoutToClipboardToolStripMenuItem_Click);
             // 
             // setPrefetchStartOffsetToolStripMenuItem
             // 
             this.setPrefetchStartOffsetToolStripMenuItem.Name = "setPrefetchStartOffsetToolStripMenuItem";
-            this.setPrefetchStartOffsetToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.setPrefetchStartOffsetToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.setPrefetchStartOffsetToolStripMenuItem.Text = "Set Prefetch Start Offset";
             this.setPrefetchStartOffsetToolStripMenuItem.Click += new System.EventHandler(this.setPrefetchStartOffsetToolStripMenuItem_Click);
             // 
