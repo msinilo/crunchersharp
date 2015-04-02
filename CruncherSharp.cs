@@ -337,9 +337,9 @@ namespace CruncherSharp
                 DataGridViewCell cell = row.Cells[0];
                 if (cell.Value.ToString() == "Padding")
                 {
-                    cell.Style.BackColor = Color.LightGray;
-                    row.Cells[1].Style.BackColor = Color.LightGray;
-                    row.Cells[2].Style.BackColor = Color.LightGray;
+                    cell.Style.BackColor = Color.LightPink;
+                    row.Cells[1].Style.BackColor = Color.LightPink;
+                    row.Cells[2].Style.BackColor = Color.LightPink;
                 }
                 else if (cell.Value.ToString().IndexOf("Base: ") == 0)
                 {
@@ -349,9 +349,9 @@ namespace CruncherSharp
                 }
                 else if (cell.Value.ToString() == "Cacheline boundary")
                 {
-                    cell.Style.BackColor = Color.LightPink;
-                    row.Cells[1].Style.BackColor = Color.LightPink;
-                    row.Cells[2].Style.BackColor = Color.LightPink;
+                    cell.Style.BackColor = Color.LightGray;
+                    row.Cells[1].Style.BackColor = Color.LightGray;
+                    row.Cells[2].Style.BackColor = Color.LightGray;
                 }
             }
         }
