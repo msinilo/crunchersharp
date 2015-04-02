@@ -181,11 +181,13 @@
             // 
             this.dataGridSymbols.AllowUserToAddRows = false;
             this.dataGridSymbols.AllowUserToDeleteRows = false;
+            this.dataGridSymbols.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridSymbols.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridSymbols.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSymbols.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridSymbols.Location = new System.Drawing.Point(0, 0);
+            this.dataGridSymbols.MultiSelect = false;
             this.dataGridSymbols.Name = "dataGridSymbols";
             this.dataGridSymbols.ReadOnly = true;
             this.dataGridSymbols.RowHeadersVisible = false;
@@ -199,6 +201,7 @@
             // 
             this.dataGridViewSymbolInfo.AllowUserToAddRows = false;
             this.dataGridViewSymbolInfo.AllowUserToDeleteRows = false;
+            this.dataGridViewSymbolInfo.AllowUserToResizeRows = false;
             this.dataGridViewSymbolInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSymbolInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colField,
@@ -207,6 +210,7 @@
             this.dataGridViewSymbolInfo.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridViewSymbolInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSymbolInfo.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSymbolInfo.MultiSelect = false;
             this.dataGridViewSymbolInfo.Name = "dataGridViewSymbolInfo";
             this.dataGridViewSymbolInfo.ReadOnly = true;
             this.dataGridViewSymbolInfo.RowHeadersVisible = false;
