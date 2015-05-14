@@ -50,14 +50,23 @@ namespace CruncherSharp
                 IDiaEnumSymbols allSymbols;
                 m_session.findChildren(m_session.globalScope, SymTagEnum.SymTagUDT, null, 0, out allSymbols);
 
-                PopulateDataTable(m_table, allSymbols);
-                Cursor.Current = Cursors.Default;
+				// Temporarily clear the filter so, if current filter is invalid, we don't generate a ton of exceptions while populating the table
+				var preExistingFilter = textBoxFilter.Text;
+				textBoxFilter.Text = "";
 
-                // Sort by name by default (ascending)
-                dataGridSymbols.Sort(dataGridSymbols.Columns[0], ListSortDirection.Ascending);
-                bindingSourceSymbols.Filter = null;// "Symbol LIKE '*rde*'";
+				{
+					PopulateDataTable(m_table, allSymbols);
+					Cursor.Current = Cursors.Default;
 
-                ShowSelectedSymbolInfo();
+					// Sort by name by default (ascending)
+					dataGridSymbols.Sort(dataGridSymbols.Columns[0], ListSortDirection.Ascending);
+					bindingSourceSymbols.Filter = null;// "Symbol LIKE '*rde*'";
+				}
+
+				// Restore the filter now that the table is populated
+				textBoxFilter.Text = preExistingFilter;
+
+				ShowSelectedSymbolInfo();
             }
         }
 
@@ -92,6 +101,7 @@ namespace CruncherSharp
         {
             ulong cacheLineSize = GetCacheLineSize();
             table.Rows.Clear();
+			
             foreach (IDiaSymbol sym in symbols)
             {
                 if (sym.length > 0 && !HasSymbol(sym.name))
@@ -113,6 +123,7 @@ namespace CruncherSharp
                     m_symbols.Add(info.m_name, info);
                 }
             }
+
         }
         bool HasSymbol(string name)
         {
@@ -363,11 +374,24 @@ namespace CruncherSharp
 
         private void textBoxFilter_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxFilter.Text.Length == 0)
-                bindingSourceSymbols.Filter = null;
-            else
-                bindingSourceSymbols.Filter = "Symbol LIKE '" + textBoxFilter.Text + "'";
-        }
+			try
+			{
+				if (textBoxFilter.Text.Length == 0)
+					bindingSourceSymbols.Filter = null;
+				else
+					bindingSourceSymbols.Filter = "Symbol LIKE '" + textBoxFilter.Text + "'";
+
+				textBoxFilter.BackColor = Color.Empty;
+				textBoxFilter.ForeColor = Color.Empty;
+				filterFeedbackLabel.Text = "";
+			}
+			catch (System.Data.EvaluateException)
+			{
+				textBoxFilter.BackColor = Color.Red;
+				textBoxFilter.ForeColor = Color.White;
+				filterFeedbackLabel.Text = "Invalid filter";
+			}
+		}
 
         void dumpSymbolInfo(System.IO.TextWriter tw, SymbolInfo info)
         {

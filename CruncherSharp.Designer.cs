@@ -50,6 +50,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyTypeLayoutToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setPrefetchStartOffsetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.filterFeedbackLabel = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSymbols)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -111,6 +112,7 @@
             // 
             // splitContainer2.Panel1
             // 
+			this.splitContainer2.Panel1.Controls.Add(this.filterFeedbackLabel);
             this.splitContainer2.Panel1.Controls.Add(this.textBoxCache);
             this.splitContainer2.Panel1.Controls.Add(this.label2);
             this.splitContainer2.Panel1.Controls.Add(this.label1);
@@ -261,6 +263,13 @@
             this.setPrefetchStartOffsetToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.setPrefetchStartOffsetToolStripMenuItem.Text = "Set Prefetch Start Offset";
             this.setPrefetchStartOffsetToolStripMenuItem.Click += new System.EventHandler(this.setPrefetchStartOffsetToolStripMenuItem_Click);
+			// 
+			// filterFeedbackLabel
+			// 
+			this.filterFeedbackLabel.Location = new System.Drawing.Point(239, 5);
+			this.filterFeedbackLabel.Name = "filterFeedbackLabel";
+			this.filterFeedbackLabel.Size = new System.Drawing.Size(120, 13);
+			this.filterFeedbackLabel.TabIndex = 5;
             // 
             // CruncherSharp
             // 
@@ -312,6 +321,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox textBoxCache;
         private System.Windows.Forms.ToolStripMenuItem setPrefetchStartOffsetToolStripMenuItem;
+		private System.Windows.Forms.Label filterFeedbackLabel;
     }
 }
 
