@@ -101,7 +101,8 @@ namespace CruncherSharp
         {
             ulong cacheLineSize = GetCacheLineSize();
             table.Rows.Clear();
-			
+
+			table.BeginLoadData();
             foreach (IDiaSymbol sym in symbols)
             {
                 if (sym.length > 0 && !HasSymbol(sym.name))
@@ -123,6 +124,7 @@ namespace CruncherSharp
                     m_symbols.Add(info.m_name, info);
                 }
             }
+			table.EndLoadData();
 
         }
         bool HasSymbol(string name)
