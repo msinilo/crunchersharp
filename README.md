@@ -1,7 +1,8 @@
 # crunchersharp
-Program analyses debugger information file (PDB, so Microsoft Visual C++ only) and presents info about user defined structures (size, padding, etc). 
+Program analyses debugger information file (PDB, so Microsoft Visual C++ only) and presents info about user defined structures (size, padding, cachelines, etc). 
 
 Original blog post: http://msinilo.pl/blog/?p=425
+You can import a .csv with the instance count to get the total waste.
 
 Note that you will need the `msdia` classes to be registered. To do this:
 
