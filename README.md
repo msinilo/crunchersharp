@@ -14,4 +14,4 @@ Note that you will need the `msdia` classes to be registered. To do this:
 
   3) Manually register the DLL by typing "regsvr32 msdia<VERSION>.dll" (e.g. "regsvr32 msdia12.dll" for Visual Studio 2013)
 
-![Screenshot](http://msinilo.pl/blog2/images/Crunchingbytes_118E2/cruncher.jpg "Example screenshot")
+![Screenshot](screenshot.png "Example screenshot")
