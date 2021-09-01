@@ -1,5 +1,10 @@
 # crunchersharp
-Program analyses debugger information file (PDB, so Microsoft Visual C++ only) and presents info about user defined structures (size, padding, etc). 
+Program analyses debugger information file (PDB, so Microsoft Visual C++ only) and presents info about user defined structures (size, padding, cachelines, functions etc). 
+
+- You can filter by namespace, search for a specific symbol
+- You can import a .csv with the instance count to get the total waste, the format should be "Class Name, Number of instances"
+- You can compare two PDBs
+- You search for useless vtables, useless virtual...  
 
 Original blog post: http://msinilo.pl/blog/?p=425
 
@@ -12,5 +17,5 @@ Note that you will need the `msdia` classes to be registered. To do this:
   2) Open an elevated (admin) command prompt in the directory containing msdia<VERSION>.dll. 
 
   3) Manually register the DLL by typing "regsvr32 msdia<VERSION>.dll" (e.g. "regsvr32 msdia12.dll" for Visual Studio 2013)
-
-![Screenshot](http://msinilo.pl/blog2/images/Crunchingbytes_118E2/cruncher.jpg "Example screenshot")
+  
+![Screenshot](Screenshot.png "Example screenshot")
